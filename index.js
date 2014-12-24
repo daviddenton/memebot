@@ -4,7 +4,7 @@ var app = express();
 
 function urlFrom(mappings, params) {
     var mapping = mappings[params.name];
-    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('$CAPTION$', params.caption) + '&text1=' + mapping.bottomText.replace('$CAPTION$', params.caption);
+    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('$TOP$', params.topCaption) + '&text1=' + mapping.bottomText.replace('$BOTTOM$', params.bottomCaption);
 }
 
 function get(uri) {
@@ -17,24 +17,30 @@ function get(uri) {
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function (request, response) {
-    response.send('Post to me at: /{name}/{caption}');
+    response.send('Post to me at: /{name}/{topCaption}');
 });
 
-app.get('/:name/:caption', function (request, response) {
-    get('https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json')
-        .then(function (mappings) {
-            get(urlFrom(mappings, request.params))
-                .then(function (result) {
-                    if(result.success) {
+function renderMemeTo(params, response) {
+    get('https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json').then(function (mappings) {
+            get(urlFrom(mappings, params)).then(function (result) {
+                    if (result.success) {
                         rp(result.result.instanceImageUrl).pipe(response);
                     } else {
                         response.status(503).send(result);
                     }
                 });
-        })
-        .catch(function (err) {
+        }).catch(function (err) {
             response.status(500).send(err);
         })
+}
+
+app.get('/:name/:topCaption', function (request, response) {
+    request.params.bottomCaption = request.params.topCaption;
+    renderMemeTo(request.params, response);
+});
+
+app.get('/:name/:topCaption/:bottomCaption', function (request, response) {
+    renderMemeTo(request.params, response);
 });
 
 app.listen(app.get('port'), function () {

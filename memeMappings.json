@@ -2,7 +2,13 @@
     "bender": {
         "generatorID": 45,
         "imageID": 20,
-        "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own $CAPTION$! With blackjack and hookers.",
-        "bottomText": "In fact, forget the $CAPTION$ and the blackjack. Ahh, screw the whole thing!"
+        "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own $TOP$! With blackjack and hookers.",
+        "bottomText": "In fact, forget the $BOTTOM$ and the blackjack. Ahh, screw the whole thing!"
+    },
+    "fry": {
+        "generatorID": 45,
+        "imageID": 20,
+        "topText": "Not sure if $TOP$",
+        "bottomText": "Or $BOTTOM$"
     }
 }
