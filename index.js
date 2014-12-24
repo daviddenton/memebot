@@ -10,6 +10,7 @@ function urlFrom(mappings, params) {
 function get(uri) {
     return rp(uri)
         .then(function (data) {
+            console.log(data);
             return JSON.parse(data);
         });
 }
