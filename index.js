@@ -4,7 +4,7 @@ var app = express();
 
 function urlFrom(mappings, params) {
     var mapping = mappings[params.name];
-    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('$TOP$', params.topCaption) + '&text1=' + mapping.bottomText.replace('$BOTTOM$', params.bottomCaption);
+    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('%s', params.topCaption) + '&text1=' + mapping.bottomText.replace('%s', params.bottomCaption);
 }
 
 function get(uri) {
