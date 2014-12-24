@@ -25,7 +25,7 @@ function renderMemeTo(params, response) {
     get('https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json').then(function (mappings) {
             get(urlFrom(mappings, params)).then(function (result) {
                     if (result.success) {
-                        rp(result.result.instanceImageUrl).pipe(response);
+                        response.redirect(result.result.instanceImageUrl);
                     } else {
                         response.status(503).send(result);
                     }
