@@ -10,7 +10,6 @@ function urlFrom(mappings, params) {
 function get(uri) {
     return rp(uri)
         .then(function (data) {
-            console.log(data);
             return JSON.parse(data);
         });
 }
@@ -29,9 +28,12 @@ app.get('/:name/:caption', function (request, response) {
                     if(result.success) {
                         rp(result.result.instanceImageUrl).pipe(response);
                     } else {
-                        response.status(500).send(data);
+                        response.status(503).send(result);
                     }
                 });
+        })
+        .catch(function (err) {
+            response.status(500).send(err);
         })
 });
 
