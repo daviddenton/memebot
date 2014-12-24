@@ -4,20 +4,11 @@ var http = require('./lib/transport');
 var ma = require('./lib/memeApi');
 var map = require('./lib/mappings');
 
-var express = require('express');
-var _ = require('lodash');
-var app = express();
+var app = require('express')();
 
 var transport = new http.Transport();
-
 var memeApi = new ma.MemeApi(transport);
 var mappings = new map.Mappings(transport);
-
-app.set('port', (process.env.PORT || 5000));
-
-app.get('/', function (request, response) {
-    response.send('Post to me at: /{templateName}/{topCaption}, or: /{templateName}/{topCaption}/{bottomCaption}. Templates can be found at: https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json');
-});
 
 function withCatch(response, promise) {
     return promise.catch(function (err) {
@@ -32,6 +23,15 @@ function renderMemeTo(params, response) {
         });
     }));
 }
+
+app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function (request, response) {
+    return withCatch(response, mappings.all().then(function (mappings) {
+        response.send(mappings);
+    }));
+
+});
 
 app.get('/:search', function (request, response) {
     withCatch(response, memeApi.search(request.query.q).then(function (results) {

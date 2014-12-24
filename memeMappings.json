@@ -29,6 +29,12 @@
         "topText": "%s",
         "bottomText": "%s"
     },
+    "steve": {
+        "generatorID": 142,
+        "imageID": 366130,
+        "topText": "%s",
+        "bottomText": "%s"
+    },
     "success": {
         "generatorID": 121,
         "imageID": 1031,
