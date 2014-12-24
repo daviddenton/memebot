@@ -8,7 +8,7 @@
     "fry": {
         "generatorID": 305,
         "imageID": 84688,
-        "topText": "Not sure if $TOP$",
+        "topText": "Not sure if %s",
         "bottomText": "Or %s"
     }
 }

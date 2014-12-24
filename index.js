@@ -3,7 +3,7 @@ var rp = require('request-promise');
 var app = express();
 
 function urlFrom(mappings, params) {
-    var mapping = mappings[params.name];
+    var mapping = mappings[params.templateName];
     return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('%s', params.topCaption) + '&text1=' + mapping.bottomText.replace('%s', params.bottomCaption);
 }
 
@@ -17,7 +17,8 @@ function get(uri) {
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function (request, response) {
-    response.send('Post to me at: /{name}/{topCaption}');
+    var data = 'Post to me at: /{templateName}/{topCaption}, or: /{templateName}/{topCaption}/{bottomCaption}. Templates can be found at: https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json';
+    response.send(data);
 });
 
 function renderMemeTo(params, response) {
@@ -34,12 +35,12 @@ function renderMemeTo(params, response) {
         })
 }
 
-app.get('/:name/:topCaption', function (request, response) {
+app.get('/:templateName/:topCaption', function (request, response) {
     request.params.bottomCaption = request.params.topCaption;
     renderMemeTo(request.params, response);
 });
 
-app.get('/:name/:topCaption/:bottomCaption', function (request, response) {
+app.get('/:templateName/:topCaption/:bottomCaption', function (request, response) {
     renderMemeTo(request.params, response);
 });
 
