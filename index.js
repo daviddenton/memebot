@@ -1,39 +1,43 @@
+'use strict';
+
+var http = require('./lib/transport');
+var ma = require('./lib/memeApi');
+var map = require('./lib/mappings');
+
 var express = require('express');
-var rp = require('request-promise');
+var _ = require('lodash');
 var app = express();
 
-function urlFrom(mappings, params) {
-    var mapping = mappings[params.templateName];
-    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('%s', params.topCaption) + '&text1=' + mapping.bottomText.replace('%s', params.bottomCaption);
-}
+var transport = new http.Transport();
 
-function get(uri) {
-    return rp(uri)
-        .then(function (data) {
-            return JSON.parse(data);
-        });
-}
+var memeApi = new ma.MemeApi(transport);
+var mappings = new map.Mappings(transport);
 
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function (request, response) {
-    var data = 'Post to me at: /{templateName}/{topCaption}, or: /{templateName}/{topCaption}/{bottomCaption}. Templates can be found at: https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json';
-    response.send(data);
+    response.send('Post to me at: /{templateName}/{topCaption}, or: /{templateName}/{topCaption}/{bottomCaption}. Templates can be found at: https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json');
 });
 
-function renderMemeTo(params, response) {
-    get('https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json').then(function (mappings) {
-            get(urlFrom(mappings, params)).then(function (result) {
-                    if (result.success) {
-                        response.redirect(result.result.instanceImageUrl);
-                    } else {
-                        response.status(503).send(result);
-                    }
-                });
-        }).catch(function (err) {
-            response.status(500).send(err);
-        })
+function withCatch(response, promise) {
+    return promise.catch(function (err) {
+        response.status(err.code || 500).send(err.message);
+    });
 }
+
+function renderMemeTo(params, response) {
+    return withCatch(response, mappings.get(params.templateName).then(function (mapping) {
+        return memeApi.create(mapping, params).then(function (result) {
+            response.redirect(result.instanceImageUrl);
+        });
+    }));
+}
+
+app.get('/:search', function (request, response) {
+    withCatch(response, memeApi.search(request.query.q).then(function (results) {
+        response.send(results);
+    }));
+});
 
 app.get('/:templateName/:topCaption', function (request, response) {
     request.params.bottomCaption = request.params.topCaption;

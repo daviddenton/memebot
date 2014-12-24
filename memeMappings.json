@@ -1,14 +1,38 @@
 {
     "bender": {
-        "generatorID": 1961,
-        "imageID": 110717,
+        "generatorID": 1202681,
+        "imageID": 5090397,
         "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own %s! With blackjack and hookers.",
         "bottomText": "In fact, forget the %s and the blackjack. Ahh, screw the whole thing!"
+    },
+    "brian": {
+        "generatorID": 740857,
+        "imageID": 3459374,
+        "topText": "%s",
+        "bottomText": "%s"
+    },
+    "clarity": {
+        "generatorID": 965156,
+        "imageID": 4290013,
+        "topText": "%s",
+        "bottomText": "%s"
     },
     "fry": {
         "generatorID": 305,
         "imageID": 84688,
         "topText": "Not sure if %s",
         "bottomText": "Or %s"
+    },
+    "raptor": {
+        "generatorID": 17,
+        "imageID": 984,
+        "topText": "%s",
+        "bottomText": "%s"
+    },
+    "success": {
+        "generatorID": 121,
+        "imageID": 1031,
+        "topText": "%s",
+        "bottomText": "%s"
     }
 }
