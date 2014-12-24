@@ -1,0 +1,22 @@
+{
+  "name": "memebot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "request": "^2.51.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daviddenton/memebot"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
