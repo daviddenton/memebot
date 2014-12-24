@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="memebot" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="$PROJECT_DIR$/../../packages/node/node-v0.11.14-darwin-x64/bin/node" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+    <browser url="http://localhost:3000/" />
+    <RunnerSettings RunnerId="NodeJS.run" />
+    <ConfigurationWrapper RunnerId="NodeJS.run" />
+    <method />
+  </configuration>
+</component>

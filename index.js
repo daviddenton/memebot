@@ -1,13 +1,39 @@
 var express = require('express');
+var rp = require('request-promise');
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
+function urlFrom(mappings, params) {
+    var mapping = mappings[params.name];
+    return 'http://version1.api.memegenerator.net/Instance_Create?' + 'username=thememebot' + '&password=password' + '&languageCode=en' + '&generatorID=' + mapping.generatorID + '&imageID=' + mapping.imageID + '&text0=' + mapping.topText.replace('$CAPTION$', params.caption) + '&text1=' + mapping.bottomText.replace('$CAPTION$', params.caption);
+}
 
-app.get('/', function(request, response) {
-  response.send('Hello World! I am memebot. Please insert girder.');
+function get(uri) {
+    return rp(uri)
+        .then(function (data) {
+            return JSON.parse(data);
+        });
+}
+
+app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function (request, response) {
+    response.send('Post to me at: /{name}/{caption}');
 });
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
+app.get('/:name/:caption', function (request, response) {
+    get('https://raw.githubusercontent.com/daviddenton/memebot/master/memeMappings.json')
+        .then(function (mappings) {
+            get(urlFrom(mappings, request.params))
+                .then(function (result) {
+                    if(result.success) {
+                        rp(result.result.instanceImageUrl).pipe(response);
+                    } else {
+                        response.status(500).send(data);
+                    }
+                });
+        })
+});
+
+app.listen(app.get('port'), function () {
+    console.log("Memebot is running at localhost:" + app.get('port'));
 });
