@@ -1,13 +1,13 @@
 {
     "bender": {
-        "generatorID": 45,
-        "imageID": 20,
+        "generatorID": 1961,
+        "imageID": 110717,
         "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own %s! With blackjack and hookers.",
         "bottomText": "In fact, forget the %s and the blackjack. Ahh, screw the whole thing!"
     },
     "fry": {
-        "generatorID": 45,
-        "imageID": 20,
+        "generatorID": 305,
+        "imageID": 84688,
         "topText": "Not sure if $TOP$",
         "bottomText": "Or %s"
     }
