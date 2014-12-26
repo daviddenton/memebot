@@ -1,13 +1,19 @@
 {
+    "all": {
+        "generatorId": 6013,
+        "imageId": 1121885
+    },
+    "always": {
+        "generatorId": 76,
+        "imageId": 2485,
+        "topText": "I don't always %0",
+        "bottomText": "But when I do, I %1"
+    },
     "bender": {
         "generatorId": 1202681,
         "imageId": 5090397,
         "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own %0! With blackjack and hookers.",
         "bottomText": "In fact, forget the %0 and the blackjack. Ahh, screw the whole thing!"
-    },
-    "brian": {
-        "generatorId": 740857,
-        "imageId": 3459374
     },
     "clarity": {
         "generatorId": 965156,
@@ -19,6 +25,12 @@
         "topText": "Not sure if %0",
         "bottomText": "Or %1"
     },
+    "morpheus": {
+        "generatorId": 1143546,
+        "imageId": 4885046,
+        "topText": "What if I told you",
+        "bottomText": "%0"
+    },
     "raptor": {
         "generatorId": 17,
         "imageId": 984
@@ -27,6 +39,12 @@
         "generatorId": 340895,
         "imageId": 2055789
     },
+    "simply": {
+        "generatorId": 689854,
+        "imageId": 3291562,
+        "topText": "One does not simply",
+        "bottomText": "%0"
+    },
     "steve": {
         "generatorId": 142,
         "imageId": 366130
@@ -34,5 +52,13 @@
     "success": {
         "generatorId": 121,
         "imageId": 1031
+    },
+    "wonka": {
+        "generatorId": 542616,
+        "imageId": 2729805
+    },
+    "yuno": {
+        "generatorId": 59,
+        "imageId": 166553
     }
 }
