@@ -1,7 +1,9 @@
 {
     "all": {
         "generatorId": 6013,
-        "imageId": 1121885
+        "imageId": 1121885,
+        "topText": "%0",
+        "bottomText": "All the %1"
     },
     "always": {
         "generatorId": 76,
