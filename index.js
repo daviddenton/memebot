@@ -16,14 +16,6 @@ function withCatch(response, promise) {
     });
 }
 
-function renderMemeTo(params, response) {
-    return withCatch(response, mappings.get(params.templateName).then(function (mapping) {
-        return memeApi.create(mapping, params).then(function (result) {
-            response.redirect(result.instanceImageUrl);
-        });
-    }));
-}
-
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function (request, response) {
@@ -39,14 +31,18 @@ app.get('/:search', function (request, response) {
     }));
 });
 
-app.get('/:templateName/:topCaption', function (request, response) {
-    request.params.bottomCaption = request.params.topCaption;
-    renderMemeTo(request.params, response);
-});
+function renderMemeImage(request, response) {
+    var parts = request.url.split('/').slice(1);
 
-app.get('/:templateName/:topCaption/:bottomCaption', function (request, response) {
-    renderMemeTo(request.params, response);
-});
+    withCatch(response, mappings.get(parts[0]).then(function (mapping) {
+        return memeApi.create(mapping, parts.slice(1)).then(function (result) {
+            response.redirect(result.instanceImageUrl);
+        });
+    }));
+}
+
+app.get('/*', renderMemeImage);
+app.post('/*', renderMemeImage);
 
 app.listen(app.get('port'), function () {
     console.log("Memebot is running at localhost:" + app.get('port'));
