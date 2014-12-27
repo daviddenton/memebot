@@ -1,14 +1,7 @@
 extend layout
 block content
-    table.table
-        tr
-            th keyword
-            th template
-            th quick link
+    ul.memeList
         each mapping, name in mappings
-            tr
-                td #{name}
-                td
-                    img(src="/#{name}/__________/__________", width="200px")
-                td
-                    p.json #{originalUrl}/#{name}/__________/__________
+            li.meme
+                img(src=mapping.imageUrl, width="200px")
+                p.json #{originalUrl}/#{name}/_____/_____

@@ -2,9 +2,9 @@ extend layout
 
 block content
     h1 Search results for: #{query}
-    ul.results
+    ul.memeList
         each result, index in results
-            li.result
+            li.meme
                 p.query #{index+1}. #{result.displayName}
-                img(class=resultImage, src=result.imageUrl, width='150px')
+                img(class=memeImage, src=result.imageUrl, width='150px')
                 pre.json #{result.mapping}

@@ -123,7 +123,7 @@ header {
        */
     background-color: #fa5b4d;
     border-bottom: 1px solid #df1806;
-    text-shadow: 0px -1px 0px #df1806;
+    text-shadow: 0 -1px 0 #df1806;
 }
 
 .main-content {
@@ -139,18 +139,26 @@ pre.json {
     font-family: monospace;
 }
 
-ul.results {
-    display: inline;
-}
-
-img.resultImage {
+img.memeImage {
     text-align: center;
 }
 
-li.result {
+ul.memeList {
+    display: inline;
+}
+
+li.meme {
     vertical-align: top;
     padding: 15px;
     display: inline-block;
+}
+
+a.brand:visited {
+    color: #fff;
+}
+
+a.brand {
+    text-decoration: none;
 }
 
 p.query {
