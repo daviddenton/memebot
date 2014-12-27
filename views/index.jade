@@ -1,0 +1,14 @@
+extend layout
+block content
+    table.table
+        tr
+            th keyword
+            th template
+            th quick link
+        each mapping, name in mappings
+            tr
+                td #{name}
+                td
+                    img(src="/#{name}/__________/__________", width="200px")
+                td
+                    p.json #{originalUrl}/#{name}/__________/__________

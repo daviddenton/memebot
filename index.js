@@ -4,32 +4,24 @@ var http = require('./lib/transport');
 var ma = require('./lib/memeApi');
 var map = require('./lib/mappings');
 
-var app = require('express')();
+var express = require('express');
+
+var app = express();
 
 var transport = new http.Transport();
 var memeApi = new ma.MemeApi(transport);
 var mappings = new map.Mappings(transport);
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.set('port', (process.env.PORT || 5000));
+app.use(express.static(__dirname + '/public'));
 
 function withCatch(response, promise) {
     return promise.catch(function (err) {
         response.status(err.code || 500).send(err.message);
     });
 }
-
-app.set('port', (process.env.PORT || 5000));
-
-app.get('/', function (request, response) {
-    return withCatch(response, mappings.all().then(function (mappings) {
-        response.send(mappings);
-    }));
-
-});
-
-app.get('/:search', function (request, response) {
-    withCatch(response, memeApi.search(request.query.q).then(function (results) {
-        response.send(results);
-    }));
-});
 
 function renderMemeImage(request, response) {
     var parts = request.url.split('/').slice(1);
@@ -40,6 +32,18 @@ function renderMemeImage(request, response) {
         });
     }));
 }
+
+app.get('/', function (request, response) {
+    return withCatch(response, mappings.all().then(function (mappings) {
+        response.render('index', { title: 'Available memes', mappings: mappings, originalUrl: request.originalUrl});
+    }));
+});
+
+app.get('/:search', function (request, response) {
+    withCatch(response, memeApi.search(request.query.q).then(function (results) {
+        response.render('search', { title: 'Search', results: results, query: request.query.q});
+    }));
+});
 
 app.get('/*', renderMemeImage);
 app.post('/*', renderMemeImage);
