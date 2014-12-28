@@ -17,6 +17,8 @@ app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
+var ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
+
 function withCatch(response, promise) {
     return promise.catch(function (err) {
         response.status(err.code || 500).send(err.message);
@@ -28,7 +30,8 @@ function renderMemeImage(request, response) {
 
     withCatch(response, mappings.get(parts[0]).then(function (mapping) {
         return memeApi.create(mapping, parts.slice(1)).then(function (result) {
-            response.redirect(result.instanceImageUrl);
+            response.set('Cache-Control', 'no-transform,public,max-age=' + ONE_YEAR_IN_SECONDS + ',s-maxage=' + ONE_YEAR_IN_SECONDS);
+            response.redirect(301, result.instanceImageUrl);
         });
     }));
 }
