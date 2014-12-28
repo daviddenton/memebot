@@ -10,6 +10,7 @@
     "express": "~4.9.x",
     "jade": "^1.8.2",
     "lodash": "^2.4.1",
+    "lru-cache": "^2.5.0",
     "request-promise": "^0.3.2"
   },
   "engines": {

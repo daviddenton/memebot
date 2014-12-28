@@ -11,6 +11,7 @@ var app = express();
 var transport = new http.Transport();
 var memeApi = new ma.MemeApi(transport);
 var mappings = new map.Mappings(transport);
+var renderedCache = require("lru-cache")(5000);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -26,14 +27,18 @@ function withCatch(response, promise) {
 }
 
 function renderMemeImage(request, response) {
-    var parts = request.url.split('/').slice(1);
+    if(renderedCache.has(request.url)) {
+        response.redirect(301, renderedCache.get(request.url));
+    } else {
+        var parts = request.url.split('/').slice(1);
 
-    withCatch(response, mappings.get(parts[0]).then(function (mapping) {
-        return memeApi.create(mapping, parts.slice(1)).then(function (result) {
-            response.set('Cache-Control', 'no-transform,public,max-age=' + ONE_YEAR_IN_SECONDS + ',s-maxage=' + ONE_YEAR_IN_SECONDS);
-            response.redirect(301, result.instanceImageUrl);
-        });
-    }));
+        withCatch(response, mappings.get(parts[0]).then(function (mapping) {
+            return memeApi.create(mapping, parts.slice(1)).then(function (result) {
+                response.redirect(301, result.instanceImageUrl);
+                renderedCache.set(request.url, result.instanceImageUrl);
+            });
+        }));
+    }
 }
 
 app.get('/', function (request, response) {
