@@ -8,4 +8,9 @@ html
             a.brand(href='/') Memebot
         .container
             .main-content
+                .search
+                    form(action='/search', method='GET')
+                        input(name='q', placeholder='search for new memes', type='text')
+                        button
+                            p go!
                 block content

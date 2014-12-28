@@ -164,3 +164,13 @@ a.brand {
 p.query {
     margin: 5px;
 }
+
+div.search {
+    vertical-align: middle;
+    font-family: monospace;
+    float: right;
+}
+
+button {
+    font-family: inherit;
+}
