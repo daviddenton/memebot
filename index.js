@@ -18,8 +18,6 @@ app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-var ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
-
 function withCatch(response, promise) {
     return promise.catch(function (err) {
         response.status(err.code || 500).send(err.message);
