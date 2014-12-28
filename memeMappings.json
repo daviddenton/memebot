@@ -37,6 +37,10 @@
         "generatorId": 17,
         "imageId": 984
     },
+    "picard": {
+        "generatorId": 1481664,
+        "imageId": "6122832"
+    },
     "problems": {
         "generatorId": 340895,
         "imageId": 2055789
