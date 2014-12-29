@@ -10,9 +10,11 @@ var favicon = require('serve-favicon');
 
 var app = express();
 
+var config = process.env;
+
 var transport = new http.Transport();
-var memeApi = new ma.MemeApi(transport);
-var mappings = new map.Mappings(transport);
+var memeApi = new ma.MemeApi(config['memeapi.user'], config['memeapi.password'], transport);
+var mappings = new map.Mappings(config['mememapping.url'], transport);
 var renderedCache = require("lru-cache")(5000);
 
 app.set('views', __dirname + '/views');
