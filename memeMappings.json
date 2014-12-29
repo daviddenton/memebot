@@ -27,11 +27,33 @@
         "generatorId": 1081306,
         "imageId": "4669695"
     },
+    "evil": {
+        "generatorId": 1484525,
+        "imageId": "6134296"
+    },
     "fry": {
         "generatorId": 769721,
         "imageId": "3563610",
         "topText": "Not sure if %0",
         "bottomText": "Or %1"
+    },
+    "girlfriend": {
+        "generatorId": 1144606,
+        "imageId": "4889065"
+    },
+    "great": {
+        "generatorId": 2404082,
+        "imageId": "9616832",
+        "topText": "%0",
+        "bottomText": "That would be great"
+    },
+    "keanu": {
+        "generatorId": 2116793,
+        "imageId": "8853520",
+    },
+    "internet": {
+        "generatorId": 1095654,
+        "imageId": "4714007"
     },
     "morpheus": {
         "generatorId": 1143546,
@@ -57,6 +79,12 @@
         "topText": "One does not simply",
         "bottomText": "%0"
     },
+    "stark": {
+        "generatorId": 414926,
+        "imageId": "2295701",
+        "topText": "Prepare yourselves",
+        "bottomText": "%0"
+    },
     "steve": {
         "generatorId": 142,
         "imageId": 366130
@@ -68,6 +96,10 @@
     "wonka": {
         "generatorId": 337840,
         "imageId": "2046629"
+    },
+    "yoda": {
+        "generatorId": 629,
+        "imageId": "963"
     },
     "yuno": {
         "generatorId": 330384,
