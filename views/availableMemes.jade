@@ -5,9 +5,7 @@ block content
         each mapping, name in mappings
             li.meme
                 .container
-                    button.copy(content='#{mapping.templatePath}')
+                    button.copy(name='#{name}', content='#{mapping.templatePath}')
                         p #{name}
                 img.meme(src='#{mapping.templatePath}', width='200px')
-    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-    script(type='text/javascript', src='/lib/zeroclip/jquery.zclip.min.js')
     script(type='text/javascript', src='/js/availableMemes.js')

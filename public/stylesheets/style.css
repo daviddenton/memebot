@@ -183,3 +183,11 @@ input.search {
 button {
     font-family: inherit;
 }
+
+.toast-success {
+    background-color: #345E6C
+}
+
+.toast-message {
+    color: #ffffff;
+}

@@ -5,9 +5,7 @@ block content
         each result in results
             li.meme
                 .result
-                    button.copy(content=result.mapping)
+                    button.copy(name='#{result.displayName}', content=result.mapping)
                         p #{result.displayName}
                 img(class=meme, src=result.imageUrl, width='150px')
-    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-    script(type='text/javascript', src='/lib/zeroclip/jquery.zclip.min.js')
     script(type='text/javascript', src='/js/search.js')
