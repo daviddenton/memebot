@@ -161,6 +161,10 @@ a.brand {
     text-decoration: none;
 }
 
+a.meme {
+    text-decoration: none;
+}
+
 p.query {
     margin: 5px;
 }

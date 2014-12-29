@@ -4,6 +4,6 @@ block content
     ul.memeList
         each mapping, name in mappings
             li.meme
-                img(src="/#{name}/______/______", width="200px")
-                a(href="#{mapping.templatePath}")
+                a.meme(href="#{mapping.templatePath}")
                     p.exampleLink #{mapping.templatePath}
+                img(src="/#{name}/______/______", width="200px")
