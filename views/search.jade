@@ -1,9 +1,13 @@
 extend layout
 block content
-    h1 Search results for '#{query}':
+    h1 Search results for '#{query}' (click on title to copy mapping JSON to clipboard):
     ul.memeList
-        each result, index in results
+        each result in results
             li.meme
-                p.query #{index+1}. #{result.displayName}
+                .result
+                    button.copy(content=result.mapping)
+                        p #{result.displayName}
                 img(class=meme, src=result.imageUrl, width='150px')
-                pre.json #{result.mapping}
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(type='text/javascript', src='/lib/zeroclip/jquery.zclip.min.js')
+    script(type='text/javascript', src='/js/search.js')
