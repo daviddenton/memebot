@@ -15,7 +15,7 @@
         "generatorId": 1546118,
         "imageId": 6365265,
         "topText": "%0",
-        "bottomText": ""
+        "bottomText": " "
     },
     "bender": {
         "generatorId": 1202681,
@@ -30,7 +30,7 @@
     "evil": {
         "generatorId": 1484525,
         "imageId": 6134296,
-        "topText": "",
+        "topText": " ",
         "bottomText": "%0"
     },
     "fry": {
