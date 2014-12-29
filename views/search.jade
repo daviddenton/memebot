@@ -1,11 +1,19 @@
 extend layout
 block content
-    h1 Search results for '#{query}' (click on title to copy mapping JSON to clipboard):
-    ul.memeList
-        each result in results
-            li.meme
-                .result
-                    button.copy(name='#{result.displayName}', content=result.mapping)
-                        p #{result.displayName}
-                img(class=meme, src=result.imageUrl, width='150px')
+    .container
+        p.title Meme mappings
+        p The set of available images is hosted in Github in a&nbsp;
+            a(href='#{memeMappingsUrl}') master JSON file.
+        p To suggest a mapping added, grab the JSON for an image below, fork the&nbsp;
+            a(href='#{memeMappingsUrl}') repo
+        p and submit a pull request for the memeMappings.json file.
+    .container
+        p.title Search results for '#{query}' (click on title to copy mapping JSON to clipboard):
+        ul.memeList
+            each result in results
+                li.meme
+                    .result
+                        button.copy(name='#{result.displayName}', content=result.mapping)
+                            p #{result.displayName}
+                    img(class=meme, src=result.imageUrl, width='150px')
     script(type='text/javascript', src='/js/search.js')

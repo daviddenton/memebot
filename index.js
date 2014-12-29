@@ -13,9 +13,11 @@ var app = express();
 
 var config = process.env;
 
+var memeMappingsUrl = config['mememapping.url'];
+
 var transport = new http.Transport();
 var memeApi = new ma.MemeApi(config['memeapi.user'], config['memeapi.password'], transport);
-var mappings = new map.Mappings(config['mememapping.url'], transport);
+var mappings = new map.Mappings(memeMappingsUrl, transport);
 var renderedCache = require("lru-cache")(5000);
 
 app.set('views', __dirname + '/views');
@@ -60,7 +62,7 @@ app.get('/', function (request, response) {
 
 app.get('/search', function (request, response) {
     withCatch(response, memeApi.search(request.query.q).then(function (results) {
-        response.render('search', { title: 'Search:' + request.query.q, results: results, query: request.query.q});
+        response.render('search', { title: 'Search:' + request.query.q, memeMappingsUrl: memeMappingsUrl, results: results, query: request.query.q});
     }));
 });
 

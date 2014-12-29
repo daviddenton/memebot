@@ -1,11 +1,18 @@
 extend layout
 block content
-    h1 Available memes (click on title to copy URL template to clipboard):
-    ul.memeList
-        each mapping, name in mappings
-            li.meme
-                .container
-                    button.copy(name='#{name}', content='#{mapping.templatePath}')
-                        p #{name}
-                img.meme(src='#{mapping.templatePath}', width='200px')
+    .container
+        p.title What is this?
+            p Memebot provides a URL-based API over Meme image generation. You can use one of the pre-templated
+                | meme names and captions in the following URL format to generate an image:
+            pre.link           http://memebot.co.uk/{name}/{caption part}/{caption part}
+            p To suggest a new template, please use the search feature.
+    .container
+        p.title Available memes (click on title to copy URL template to clipboard):
+        ul.memeList
+            each mapping, name in mappings
+                li.meme
+                    .container
+                        button.copy(name='#{name}', content='#{mapping.templatePath}')
+                            p #{name}
+                    img.meme(src='#{mapping.templatePath}', width='200px')
     script(type='text/javascript', src='/js/availableMemes.js')

@@ -134,8 +134,12 @@ p {
     line-height: 1.8;
 }
 
-pre.json {
-    margin: 5px;
+div.container {
+    padding-bottom: 40px;
+}
+
+pre.link {
+    margin: 10px;
     font-family: monospace;
 }
 
@@ -163,6 +167,10 @@ a.brand {
 
 a.meme {
     text-decoration: none;
+}
+
+p.title {
+    font-size: 150%;
 }
 
 p.query {
