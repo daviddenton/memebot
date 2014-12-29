@@ -11,6 +11,12 @@
         "topText": "I don't always %0",
         "bottomText": "But when I do, I %1"
     },
+    "batman": {
+        "generatorId": 1546118,
+        "imageId": "6365265",
+        "topText": "%0",
+        "bottomText": ""
+    },
     "bender": {
         "generatorId": 1202681,
         "imageId": 5090397,
@@ -18,12 +24,12 @@
         "bottomText": "In fact, forget the %0 and the blackjack. Ahh, screw the whole thing!"
     },
     "clarity": {
-        "generatorId": 965156,
-        "imageId": 4290013
+        "generatorId": 1081306,
+        "imageId": "4669695"
     },
     "fry": {
-        "generatorId": 305,
-        "imageId": 84688,
+        "generatorId": 769721,
+        "imageId": "3563610",
         "topText": "Not sure if %0",
         "bottomText": "Or %1"
     },
@@ -46,8 +52,8 @@
         "imageId": 2055789
     },
     "simply": {
-        "generatorId": 689854,
-        "imageId": 3291562,
+        "generatorId": 1259171,
+        "imageId": "5291301",
         "topText": "One does not simply",
         "bottomText": "%0"
     },
@@ -60,11 +66,11 @@
         "imageId": 1031
     },
     "wonka": {
-        "generatorId": 542616,
-        "imageId": 2729805
+        "generatorId": 337840,
+        "imageId": "2046629"
     },
     "yuno": {
-        "generatorId": 59,
-        "imageId": 166553
+        "generatorId": 330384,
+        "imageId": "2023736"
     }
 }
