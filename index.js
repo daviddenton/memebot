@@ -50,7 +50,7 @@ app.get('/', function (request, response) {
 
 app.get('/search', function (request, response) {
     withCatch(response, memeApi.search(request.query.q).then(function (results) {
-        response.render('search', { title: 'Search', results: results, query: request.query.q});
+        response.render('search', { title: 'Search:' + request.query.q, results: results, query: request.query.q});
     }));
 });
 
