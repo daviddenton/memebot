@@ -139,7 +139,7 @@ pre.json {
     font-family: monospace;
 }
 
-img.memeImage {
+img.meme {
     text-align: center;
 }
 
@@ -171,7 +171,6 @@ p.query {
 
 div.search {
     vertical-align: middle;
-    font-family: monospace;
     position: absolute;
     top: 150px;
     right: 100px;

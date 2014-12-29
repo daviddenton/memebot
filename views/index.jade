@@ -1,9 +1,0 @@
-extend layout
-block content
-    h1 Available memes:
-    ul.memeList
-        each mapping, name in mappings
-            li.meme
-                a.meme(href="#{mapping.templatePath}")
-                    p.exampleLink #{mapping.templatePath}
-                img(src="/#{name}/______/______", width="200px")

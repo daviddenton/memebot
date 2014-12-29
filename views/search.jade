@@ -5,5 +5,5 @@ block content
         each result, index in results
             li.meme
                 p.query #{index+1}. #{result.displayName}
-                img(class=memeImage, src=result.imageUrl, width='150px')
+                img(class=meme, src=result.imageUrl, width='150px')
                 pre.json #{result.mapping}

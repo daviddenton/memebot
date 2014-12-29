@@ -44,11 +44,11 @@ function renderMemeImage(request, response) {
 
 app.get('/', function (request, response) {
     return withCatch(response, mappings.all().then(function (mappings) {
-        response.render('index', { title: 'Available memes', mappings: mappings, originalUrl: request.originalUrl});
+        response.render('availableMemes', { title: 'Available memes', mappings: mappings, originalUrl: request.originalUrl});
     }));
 });
 
-app.get('/:search', function (request, response) {
+app.get('/search', function (request, response) {
     withCatch(response, memeApi.search(request.query.q).then(function (results) {
         response.render('search', { title: 'Search', results: results, query: request.query.q});
     }));
