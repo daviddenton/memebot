@@ -29,7 +29,9 @@
     },
     "evil": {
         "generatorId": 1484525,
-        "imageId": 6134296
+        "imageId": 6134296,
+        "topText": "",
+        "bottomText": "%0"
     },
     "fry": {
         "generatorId": 769721,
