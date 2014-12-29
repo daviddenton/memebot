@@ -11,7 +11,8 @@
     "jade": "^1.8.2",
     "lodash": "^2.4.1",
     "lru-cache": "^2.5.0",
-    "request-promise": "^0.3.2"
+    "request-promise": "^0.3.2",
+    "serve-favicon": "^2.2.0"
   },
   "engines": {
     "node": "0.10.x"
