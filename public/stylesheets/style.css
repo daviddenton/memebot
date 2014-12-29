@@ -176,6 +176,10 @@ div.search {
     right: 100px;
 }
 
+input.search {
+    font-family: monospace;
+}
+
 button {
     font-family: inherit;
 }
