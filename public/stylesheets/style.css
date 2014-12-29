@@ -168,7 +168,9 @@ p.query {
 div.search {
     vertical-align: middle;
     font-family: monospace;
-    float: right;
+    position: absolute;
+    top: 150px;
+    right: 100px;
 }
 
 button {
