@@ -1,13 +1,14 @@
 extend layout
 block content
-    .container
+    .section
         p.title Meme mappings
         p The set of available images is hosted in Github in a&nbsp;
             a(href='#{memeMappingsUrl}') master JSON file.
         p To suggest a mapping added, grab the JSON for an image below, fork the&nbsp;
             a(href='#{memeMappingsUrl}') repo
-        p and submit a pull request for the memeMappings.json file.
-    .container
+        p and submit a pull request for the memeMappings.json file. You can use as many numbered (0-based) caption
+            | markers as you wish - this will be reflected in the URL template generated.
+    .section
         p.title Search results for '#{query}' (click on title to copy mapping JSON to clipboard):
         ul.memeList
             each result in results

@@ -1,12 +1,12 @@
 extend layout
 block content
-    .container
+    .section
         p.title What is this?
             p Memebot provides a URL-based API over Meme image generation. You can use one of the pre-templated
                 | meme names and captions in the following URL format to generate an image:
-            pre.link           http://memebot.co.uk/{name}/{caption part}/{caption part}
+            pre.link           http://memebot.co.uk/{name}/{caption part}/{caption part}/...
             p To suggest a new template, please use the search feature.
-    .container
+    .section
         p.title Available memes (click on title to copy URL template to clipboard):
         ul.memeList
             each mapping, name in mappings
