@@ -30,7 +30,7 @@
     "evil": {
         "generatorId": 1484525,
         "imageId": 6134296,
-        "topText": " ",
+        "topText": "  ",
         "bottomText": "%0"
     },
     "fry": {
@@ -47,7 +47,7 @@
         "generatorId": 2404082,
         "imageId": 9616832,
         "topText": "%0",
-        "bottomText": "That would be great"
+        "bottomText": "That'd be great"
     },
     "keanu": {
         "generatorId": 2116793,
