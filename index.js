@@ -6,6 +6,7 @@ var map = require('./lib/mappings');
 
 var express = require('express');
 var path = require('path');
+var _ = require('lodash');
 var favicon = require('serve-favicon');
 
 var app = express();
@@ -43,6 +44,13 @@ function renderMemeImage(request, response) {
         }));
     }
 }
+
+app.get('/cache', function (request, response) {
+    var cacheContents = _.object(_.map(renderedCache.keys(), function (key) {
+        return [key, renderedCache.get(key)];
+    }));
+    response.send(cacheContents);
+});
 
 app.get('/', function (request, response) {
     return withCatch(response, mappings.all().then(function (mappings) {
