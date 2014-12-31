@@ -1,5 +1,7 @@
 'use strict';
 
+require('newrelic');
+
 var http = require('./lib/transport');
 var ma = require('./lib/memeApi');
 var map = require('./lib/mappings');
@@ -32,21 +34,6 @@ function withCatch(response, promise) {
     });
 }
 
-function renderMemeImage(request, response) {
-    if (renderedCache.has(request.url)) {
-        response.redirect(301, renderedCache.get(request.url));
-    } else {
-        var parts = request.url.split('/').slice(1);
-
-        withCatch(response, mappings.get(parts[0]).then(function (mapping) {
-            return memeApi.create(mapping, parts.slice(1)).then(function (result) {
-                response.redirect(301, result.instanceImageUrl);
-                renderedCache.set(request.url, result.instanceImageUrl);
-            });
-        }));
-    }
-}
-
 app.get('/cache', function (request, response) {
     var cacheContents = _.object(_.map(renderedCache.keys(), function (key) {
         return [key, renderedCache.get(key)];
@@ -66,8 +53,26 @@ app.get('/search', function (request, response) {
     }));
 });
 
-app.get('/*', renderMemeImage);
-app.post('/*', renderMemeImage);
+app.get('/*', function renderMemeImageFromGet(request, response) {
+    if (renderedCache.has(request.url)) {
+        response.redirect(301, renderedCache.get(request.url));
+    } else {
+        var parts = request.url.split('/').slice(1);
+
+        withCatch(response, mappings.get(parts[0]).then(function (mapping) {
+            return memeApi.create(mapping, parts.slice(1)).then(function (result) {
+                response.redirect(301, result.instanceImageUrl);
+                renderedCache.set(request.url, result.instanceImageUrl);
+            });
+        }));
+    }
+});
+
+app.post('/*', function (request, response) {
+    withCatch(response, memeApi.create(request.body).then(function (result) {
+        response.redirect(301, result.instanceImageUrl);
+    }));
+});
 
 app.listen(app.get('port'), function () {
     console.log("Memebot is running at localhost:" + app.get('port'));
