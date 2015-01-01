@@ -2,19 +2,17 @@ doctype html
 html
     head
         title #{title} // Memebot
-        link(rel='stylesheet', href='http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/lib/custombox/custombox.min.css')
+        link(rel='stylesheet', href='http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css')
         script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+        script(type='text/javascript', src='/lib/custombox/custombox.min.js')
         script(type='text/javascript', src='http://cdnjs.cloudflare.com/ajax/libs/zclip/1.1.2/jquery.zclip.min.js')
         script(type='text/javascript', src='http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')
     body
         header
             a.brand(href='/') Memebot
-        .container
-            .main-content
-                .search
-                    form(action='/search', method='GET')
-                        input.search(name='q', placeholder='search for new memes', type='text')
-                        button
-                            p go!
-                block content
+        include ./createModal
+        .main-content
+            include ./searchBox
+            block content

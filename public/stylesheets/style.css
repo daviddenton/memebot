@@ -199,3 +199,32 @@ button {
 .toast-message {
     color: #ffffff;
 }
+
+.create-modal {
+    background-color: #FFF;
+    width: 600px;
+    border: #000 solid 1px;
+    border-radius: 10px;
+    box-shadow: 0 8px 6px -6px black;
+    text-align: left;
+    display: none;
+}
+
+div.create-meme {
+    margin: 25px;
+    display: inline-block;
+}
+
+img.create-meme {
+    padding: 25px;
+    width: 300px;
+}
+
+form.create-meme {
+    padding: 25px;
+    display: block;
+}
+
+input.control {
+    display: inherit;
+}

@@ -1,0 +1,12 @@
+.create-modal
+    .create-meme
+        p.title Create a meme
+        img.create-meme
+        form.create-meme
+            input.control(id='topText', placeholder='top caption')
+            input.control(id='bottomText', placeholder='bottom caption')
+            input.control(id='generatorId', type='hidden')
+            input.control(id='imageId', type='hidden')
+            button.control(type='submit')
+                p go!
+script(type='text/javascript', src='/js/createMeme.js')
