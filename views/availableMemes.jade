@@ -12,7 +12,7 @@ block content
             each mapping, name in mappings
                 li.meme
                     .cont
-                        button.copy(name='#{name}', content='#{mapping.templatePath}')
+                        button.copy(name=name, content=mapping.templatePath)
                             p #{name}
-                        img.meme(src='#{mapping.templatePath}', width='200px')
+                        img.meme(src=mapping.templatePath, generatorId=mapping.generatorId, imageId=mapping.imageId, name=name, width='200px')
     script(type='text/javascript', src='/js/availableMemes.js')
