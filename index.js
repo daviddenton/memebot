@@ -71,6 +71,7 @@ app.get('/*', function renderMemeImageFromGet(request, response) {
 });
 
 app.post('/', function (request, response) {
+    console.log(request.body);
     withCatch(response, memeApi.create(request.body).then(function (result) {
         response.redirect(301, result.instanceImageUrl);
     }));

@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('img.meme').click(function (e) {
         var target = $(e.target);
-        $('#generatorId').val(target.attr('generatorId'));
-        $('#imageId').val(target.attr('imageId'));
-        $('img.create-meme').attr('src', target.attr('src'));
+        $('.create-meme .title').text('Create meme from: ' + target.attr('name'));
+        $('.create-meme #generatorId').val(target.attr('generatorId'));
+        $('.create-meme #imageId').val(target.attr('imageId'));
+        $('.create-meme img').attr('src', target.attr('src'));
         Custombox.open({
             target: '.create-modal',
             effect: 'flip',

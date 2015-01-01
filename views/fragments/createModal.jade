@@ -1,8 +1,8 @@
 .create-modal
     .create-meme
-        p.title Create a meme
+        p.title
         img.create-meme
-        form.create-meme
+        form.create-meme(action='/', method='POST')
             input.control(id='topText', placeholder='top caption')
             input.control(id='bottomText', placeholder='bottom caption')
             input.control(id='generatorId', type='hidden')
