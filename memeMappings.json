@@ -53,6 +53,12 @@
         "generatorId": 2116793,
         "imageId": 8853520
     },
+    "kermit": {
+        "generatorId": 3466964,
+        "imageId": 11590722,
+        "topText": "%0",
+        "bottomText": "But that\'s none of my business"
+    },
     "internet": {
         "generatorId": 1095654,
         "imageId": 4714007
@@ -74,6 +80,10 @@
     "problems": {
         "generatorId": 340895,
         "imageId": 2055789
+    },
+    "seal": {
+        "generatorId": 3191699,
+        "imageId": 11226761
     },
     "simply": {
         "generatorId": 1259171,
