@@ -14,8 +14,8 @@ block content
             each result in results
                 li.meme
                     .result
-                        button.copy(name=#{result.displayName}, content=#{result.mapping})
+                        button.copy(name=result.displayName, content=result.mapping)
                             p #{result.displayName}
-                    img.meme(src=#{result.imageUrl}, generatorId=#{result.generatorId}, imageId=#{result.imageId}, width='150px')
+                    img.meme(src=result.imageUrl, generatorId=result.generatorId, imageId=result.imageId, width='150px')
     script(type='text/javascript', src='/js/search.js')
     script(type='text/javascript', src='/js/createMeme.js')
