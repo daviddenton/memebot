@@ -7,6 +7,7 @@ var ma = require('./lib/memeApi');
 var map = require('./lib/mappings');
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var path = require('path');
 var _ = require('lodash');
 var favicon = require('serve-favicon');
@@ -27,6 +28,7 @@ app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(bodyParser.urlencoded({extended: false}));
 
 function withCatch(response, promise) {
     return promise.catch(function (err) {
@@ -68,7 +70,7 @@ app.get('/*', function renderMemeImageFromGet(request, response) {
     }
 });
 
-app.post('/*', function (request, response) {
+app.post('/', function (request, response) {
     withCatch(response, memeApi.create(request.body).then(function (result) {
         response.redirect(301, result.instanceImageUrl);
     }));
