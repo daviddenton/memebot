@@ -21,7 +21,7 @@ var memeMappingsUrl = config['mememapping.url'];
 var transport = new http.Transport();
 var memeApi = new ma.MemeApi(config['memeapi.user'], config['memeapi.password'], transport);
 var mappings = new map.Mappings(memeMappingsUrl, transport);
-var renderedCache = require("lru-cache")(5000);
+var renderedCache = require("lru-cache")({ max: 5000, maxAge: 1000 * 60 * 60 * 24 * 30 });
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
