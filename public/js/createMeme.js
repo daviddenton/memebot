@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('img.meme').click(function (e) {
         var target = $(e.target);
-        console.log(target.attr('mapping'));
         var mapping = JSON.parse(target.attr('mapping'));
         $('.create-meme .title').text('Create meme from: ' + target.attr('name'));
         $('.create-meme #generatorId').val(mapping.generatorId);
