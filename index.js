@@ -25,7 +25,7 @@ var renderedCache = require("lru-cache")({ max: 5000, maxAge: 1000 * 60 * 60 * 2
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (config['PORT'] || 5000));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
