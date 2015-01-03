@@ -24,9 +24,15 @@ $(document).ready(function () {
 
     var mappingInFocus = {};
 
+    $('div.create-meme').hide();
+    $('div.display-meme').hide();
+
     $('img.meme').click(function (e) {
         var target = $(e.target);
         mappingInFocus = JSON.parse(target.attr('mapping'));
+
+        $('div.create-meme').show();
+        $('div.display-meme').hide();
 
         $('.create-meme img').attr('src', target.attr('src'));
         $('.create-meme .title').text('Create meme from: ' + target.attr('name'));
@@ -44,7 +50,10 @@ $(document).ready(function () {
         mappingToPost.bottomText = substituteCaptionsInto(mappingInFocus.bottomText, templates);
 
         $.post('/', mappingToPost, function (url) {
-            window.location = url;
+            $('div.create-meme').hide();
+            $('.display-meme .title').text(url);
+            $('.display-meme img').attr('src', url);
+            $('div.display-meme').show();
         });
     });
 });

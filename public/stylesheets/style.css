@@ -216,8 +216,10 @@ div.create-meme {
     display: inline-block;
 }
 
-img.create-meme {
-    width: 300px;
+div.display-meme {
+    text-align: -webkit-center;
+    margin: 25px;
+    display: inline-block;
 }
 
 .control {
