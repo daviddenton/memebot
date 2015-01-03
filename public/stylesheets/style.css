@@ -211,22 +211,17 @@ button {
 }
 
 div.create-meme {
+    text-align: -webkit-center;
     margin: 25px;
     display: inline-block;
 }
 
 img.create-meme {
-    padding: 25px;
     width: 300px;
-}
-
-form.create-meme {
-    padding: 25px;
-    display: block;
 }
 
 .control {
     display: inherit;
-    padding: 10px;
     width: 300px;
+    margin: 10px;
 }
