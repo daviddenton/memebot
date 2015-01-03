@@ -3,10 +3,10 @@
         p.title
         img.create-meme
         form.create-meme(action='/', method='POST')
-            input.control(id='topText', placeholder='top caption')
-            input.control(id='bottomText', placeholder='bottom caption')
-            input.control(id='generatorId', type='hidden')
-            input.control(id='imageId', type='hidden')
+            input.control(name='topText', placeholder='top caption')
+            input.control(name='bottomText', placeholder='bottom caption')
+            input.control(id='generatorId', name='generatorId', type='hidden')
+            input.control(id='imageId', name='imageId',type='hidden')
             button.control(type='submit')
                 p go!
 script(type='text/javascript', src='/js/createMeme.js')
