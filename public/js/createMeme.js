@@ -1,7 +1,7 @@
 var TOKEN_PATTERN = /\%(\d+)/g;
 
 var MODAL_PROPERTIES = {
-    target: '.create-modal',
+    target: '.meme-modal',
     effect: 'flip',
     overlaySpeed: 100,
     speed: 200
