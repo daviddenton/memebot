@@ -225,8 +225,8 @@ form.create-meme {
     display: block;
 }
 
-input.control {
+.control {
     display: inherit;
-    padding-bottom: 25px;
+    padding: 10px;
     width: 300px;
 }
