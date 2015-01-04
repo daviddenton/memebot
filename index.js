@@ -1,6 +1,7 @@
 'use strict';
 require('newrelic');
 
-var config = process.env;
-config.root = __dirname;
-new require('./lib/memebotServer').MemebotServer(config, console.log).start();
+var c = require('./lib/config');
+var ms = require('./lib/memebotServer');
+
+new ms.MemebotServer(c.ProcessEnvironmentConfig(__dirname), console.log).start();
