@@ -36,6 +36,10 @@ function withCatch(response, promise) {
     });
 }
 
+app.get('/ping', function (request, response) {
+    response.send('pong');
+});
+
 app.get('/cache', function (request, response) {
     var cacheContents = _.object(_.map(renderedCache.keys(), function (key) {
         return [key, renderedCache.get(key)];
