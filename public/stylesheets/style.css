@@ -169,6 +169,10 @@ a.meme {
     text-decoration: none;
 }
 
+a.next {
+    float: right;
+}
+
 p.title {
     font-size: 150%;
 }

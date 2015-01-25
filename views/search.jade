@@ -10,6 +10,10 @@ block content
             | markers as you wish - this will be reflected in the URL template generated.
     .section
         p.title Search results for '#{query}' (click on title to copy mapping JSON to clipboard):
+        .paging
+            if previousLink
+                a(href=previousLink) < previous
+            a.next(href=nextLink) next >
         ul.memeList
             each result in results
                 li.meme
