@@ -59,6 +59,12 @@
         "topText": "%0",
         "bottomText": "But that's none of my business"
     },
+    "khan": {
+        "generatorId": 1140619,
+        "imageId": 4874493,
+        "topText": "%0!!!!!",
+        "bottomText": "  "
+    },
     "internet": {
         "generatorId": 1095654,
         "imageId": 4714007
