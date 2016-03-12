@@ -1,0 +1,106 @@
+{
+  "all": {
+    "imageId": "1121885",
+    "topText": "%0",
+    "bottomText": "All the %1"
+  },
+  "always": {
+    "imageId": "2485",
+    "topText": "I don't always %0",
+    "bottomText": "But when I do, I %1"
+  },
+  "batman": {
+    "imageId": "6365265",
+    "topText": "%0",
+    "bottomText": " "
+  },
+  "bender": {
+    "imageId": "5090397",
+    "topText": "Oh, no room for Bender, huh? Fine! I'll go build my own %0! With blackjack and hookers.",
+    "bottomText": "In fact, forget the %0 and the blackjack. Ahh, screw the whole thing!"
+  },
+  "clarity": {
+    "imageId": "4669695"
+  },
+  "evil": {
+    "imageId": "6134296",
+    "topText": "  ",
+    "bottomText": "%0"
+  },
+  "fry": {
+    "imageId": "3563610",
+    "topText": "Not sure if %0",
+    "bottomText": "Or %1"
+  },
+  "girlfriend": {
+    "imageId": "4889065"
+  },
+  "great": {
+    "imageId": "9616832",
+    "topText": "%0",
+    "bottomText": "That'd be great"
+  },
+  "keanu": {
+    "imageId": "8853520"
+  },
+  "kermit": {
+    "imageId": "11590722",
+    "topText": "%0",
+    "bottomText": "But that's none of my business"
+  },
+  "khan": {
+    "imageId": "4874493",
+    "topText": "%0!!!!!",
+    "bottomText": "  "
+  },
+  "internet": {
+    "imageId": "4714007"
+  },
+  "minds": {
+    "imageId": "8751948",
+    "topText": "%0",
+    "bottomText": "%1 and everyone loses their minds"
+  },
+  "morpheus": {
+    "imageId": "4885046",
+    "topText": "What if I told you",
+    "bottomText": "%0"
+  },
+  "raptor": {
+    "imageId": "984"
+  },
+  "picard": {
+    "imageId": "6122832"
+  },
+  "problems": {
+    "imageId": "2055789"
+  },
+  "seal": {
+    "imageId": "11226761"
+  },
+  "simply": {
+    "imageId": "61579",
+    "topText": "One does not simply",
+    "bottomText": "%0"
+  },
+  "stark": {
+    "imageId": "2295701",
+    "topText": "Prepare yourselves",
+    "bottomText": "%0"
+  },
+  "steve": {
+    "imageId": "366130"
+  },
+  "success": {
+    "imageId": "1031"
+  },
+  "wonka": {
+    "imageId": "2046629"
+  },
+  "yoda": {
+    "imageId": "963"
+  },
+  "yuno": {
+    "imageId": "TJa9aw"
+  }
+}
